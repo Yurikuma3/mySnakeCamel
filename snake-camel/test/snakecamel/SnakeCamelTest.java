@@ -5,7 +5,7 @@ import static org.hamcrest.CoreMatchers.*;
 import org.junit.Test;
 
 public class SnakeCamelTest {
-
+	// snakeToCamelcase
 	@Test
 	public void snakeToCamelcaseでengをCamelcaseにして取得する() {
 	SnakeCamelUtil scu = new SnakeCamelUtil();
@@ -27,6 +27,7 @@ public class SnakeCamelTest {
 	assertThat(actual, is(expected));
 	}
 	
+	// CameltoSnakecase
 	@Test
 	public void camelToSnakecaseでengをSnakecaseにして取得する() {
 	SnakeCamelUtil scu = new SnakeCamelUtil();
@@ -47,6 +48,38 @@ public class SnakeCamelTest {
 	String expected = "snake_camel_test";
 	String actual = scu.camelToSnakecase("SnakeCamelTest");
 	assertThat(actual, is(expected));
+	}
+	
+	// capitalize
+	@Test
+	public void capitalizeでxを大文字にして取得する() {
+		SnakeCamelUtil scu = new SnakeCamelUtil();
+		String expected = "X";
+		String actual = scu.capitalize("x");
+		assertThat(actual, is(expected));
+	}
+	@Test
+	public void capitalizeでhelloをcapitalizeして取得する() {
+		SnakeCamelUtil scu = new SnakeCamelUtil();
+		String expected = "Hello";
+		String actual = scu.capitalize("hello");
+		assertThat(actual, is(expected));
+	}
+	
+	// uncapitalize
+	@Test
+	public void uncapitalizeでXを小文字にして取得する() {
+		SnakeCamelUtil scu = new SnakeCamelUtil();
+		String expected = "x";
+		String actual = scu.uncapitalize("X");
+		assertThat(actual, is(expected));
+	}
+	@Test
+	public void uncapitalizeでHelloをunpitalizeして取得する() {
+		SnakeCamelUtil scu = new SnakeCamelUtil();
+		String expected = "hello";
+		String actual = scu.uncapitalize("Hello");
+		assertThat(actual, is(expected));
 	}
 	
 }
