@@ -12,6 +12,7 @@ public class SnakeCamelUtil {
 		}
 		return new String(sb);
 	}
+	
 	public static String camelToSnakecase(String camelcase) { // Camel → Snake
 		StringBuilder sb = new StringBuilder();
 		int j = 0;

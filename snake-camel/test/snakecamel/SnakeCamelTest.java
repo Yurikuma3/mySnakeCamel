@@ -87,7 +87,7 @@ public class SnakeCamelTest {
 		String actual = scu.capitalize("hello");
 		assertThat(actual, is(expected));
 	}
-	
+
 	// uncapitalize
 	@Test
 	public void uncapitalizeに空文字を与える() {
