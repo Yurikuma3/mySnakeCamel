@@ -19,11 +19,26 @@ public class SnakeCamelTest {
 	String expected = "SnakeCamel";
 	String actual = scu.snakeToCamelcase("snake_camel");
 	assertThat(actual, is(expected));
-	}@Test
-	public void snakeToCamelcaseでEngAveTestをCamelcaseにして取得する() {
+	}
+	@Test
+	public void snakeToCamelcaseでsnake_camel_testをCamelcaseにして取得する() {
 	SnakeCamelUtil scu = new SnakeCamelUtil();
 	String expected = "SnakeCamelTest";
 	String actual = scu.snakeToCamelcase("snake_camel_test");
+	assertThat(actual, is(expected));
+	}
+	@Test
+	public void snakeToCamelcaseでsnake__camel___testをCamelcaseにして取得する() {
+	SnakeCamelUtil scu = new SnakeCamelUtil();
+	String expected = "SnakeCamelTest";
+	String actual = scu.snakeToCamelcase("snake__camel___test");
+	assertThat(actual, is(expected));
+	}
+	@Test
+	public void snakeToCamelcaseで_snake_camel__をCamelcaseにして取得する() {
+	SnakeCamelUtil scu = new SnakeCamelUtil();
+	String expected = "SnakeCamel";
+	String actual = scu.snakeToCamelcase("_snake_camel__");
 	assertThat(actual, is(expected));
 	}
 	
@@ -52,6 +67,13 @@ public class SnakeCamelTest {
 	
 	// capitalize
 	@Test
+	public void capitalizeに空文字を与える() {
+		SnakeCamelUtil scu = new SnakeCamelUtil();
+		String expected = "";
+		String actual = scu.capitalize("");
+		assertThat(actual, is(expected));
+	}
+	@Test
 	public void capitalizeでxを大文字にして取得する() {
 		SnakeCamelUtil scu = new SnakeCamelUtil();
 		String expected = "X";
@@ -67,6 +89,13 @@ public class SnakeCamelTest {
 	}
 	
 	// uncapitalize
+	@Test
+	public void uncapitalizeに空文字を与える() {
+		SnakeCamelUtil scu = new SnakeCamelUtil();
+		String expected = "";
+		String actual = scu.uncapitalize("");
+		assertThat(actual, is(expected));
+	}
 	@Test
 	public void uncapitalizeでXを小文字にして取得する() {
 		SnakeCamelUtil scu = new SnakeCamelUtil();

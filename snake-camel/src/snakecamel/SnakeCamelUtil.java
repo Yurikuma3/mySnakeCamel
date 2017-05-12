@@ -1,5 +1,7 @@
 package snakecamel;
 
+import java.util.Scanner;
+
 public class SnakeCamelUtil {
 
 	public static String snakeToCamelcase(String snake_case) { // Snake→Camel
@@ -30,6 +32,7 @@ public class SnakeCamelUtil {
 	}
 	
 	static String capitalize(String s) { // 文字列の最初の一字を大文字にする
+		if(s.length() == 0) return "";
 		char first = s.charAt(0);
 		char upperFirst = Character.toUpperCase(first);
 		String rest = s.substring(1); // 最初の一文字以外
@@ -37,10 +40,23 @@ public class SnakeCamelUtil {
 	}
 
 	static String uncapitalize(String s) {
+		if(s.length() == 0) return "";
 		char first = s.charAt(0);
 		char lowerFirst = Character.toLowerCase(first);
 		String rest = s.substring(1);
 		return lowerFirst + rest;
 	}
 	
+	public static void main(String[] args) {
+		String s = "";
+		System.out.println("終了時には 0 を入力してください");
+		while(true) {
+			System.out.println("変換したい文字列を入力してください");
+			Scanner sc = new Scanner(System.in);
+			s = sc.next();
+			if(s.equals("0")) return;
+			if(Character.isUpperCase(s.charAt(0))) System.out.println(camelToSnakecase(s));
+			else System.out.println(snakeToCamelcase(s));
+		}
+	}
 }
