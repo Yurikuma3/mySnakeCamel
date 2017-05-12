@@ -46,17 +46,4 @@ public class SnakeCamelUtil {
 		String rest = s.substring(1);
 		return lowerFirst + rest;
 	}
-	
-	public static void main(String[] args) {
-		String s = "";
-		System.out.println("終了時には 0 を入力してください");
-		while(true) {
-			System.out.println("変換したい文字列を入力してください");
-			Scanner sc = new Scanner(System.in);
-			s = sc.next();
-			if(s.equals("0")) return;
-			if(Character.isUpperCase(s.charAt(0))) System.out.println(camelToSnakecase(s));
-			else System.out.println(snakeToCamelcase(s));
-		}
-	}
 }
